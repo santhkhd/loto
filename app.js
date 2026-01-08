@@ -20,7 +20,8 @@ const i18n = {
         live: "Live",
         lucky: "Lucky",
         search: "Search",
-        scanner: "Download"
+        scanner: "Download",
+        selectLang: "Select Language"
     },
     ml: {
         pageTitle: "കേരള ലോട്ടറി",
@@ -33,7 +34,8 @@ const i18n = {
         live: "ലൈവ്",
         lucky: "ലക്കി",
         search: "തിരയുക",
-        scanner: "ഡൗൺലോഡ്"
+        scanner: "ഡൗൺലോഡ്",
+        selectLang: "ഭാഷ തിരഞ്ഞെടുക്കുക"
     },
     ta: {
         pageTitle: "கேரளா லாட்டரி",
@@ -46,7 +48,8 @@ const i18n = {
         live: "நேரலை",
         lucky: "லக்கி",
         search: "தேடல்",
-        scanner: "பதிவிறக்க"
+        scanner: "பதிவிறக்க",
+        selectLang: "மொழியைத் தேர்ந்தெடுக்கவும்"
     }
 };
 
@@ -120,18 +123,34 @@ function updateDate() {
 }
 
 function initLang() {
-    const btns = document.querySelectorAll('.lang-btn');
-    btns.forEach(btn => {
-        if (btn.dataset.lang === currentLang) btn.classList.add('active');
-        btn.addEventListener('click', () => {
-            currentLang = btn.dataset.lang;
-            localStorage.setItem('lang', currentLang);
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            updateTranslations();
-            renderResults();
+    const toggle = document.getElementById('lang-toggle');
+    const overlay = document.getElementById('lang-modal-overlay');
+    const options = document.querySelectorAll('.lang-option');
+
+    if (toggle && overlay) {
+        toggle.addEventListener('click', () => {
+            overlay.style.display = 'flex';
         });
-    });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.style.display = 'none';
+        });
+
+        options.forEach(opt => {
+            if (opt.dataset.lang === currentLang) opt.classList.add('active');
+            opt.addEventListener('click', () => {
+                currentLang = opt.dataset.lang;
+                localStorage.setItem('lang', currentLang);
+                options.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                updateTranslations();
+                renderResults();
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 200);
+            });
+        });
+    }
     updateTranslations();
 }
 
@@ -145,6 +164,9 @@ function updateTranslations() {
 
     const allChip = document.querySelector('[data-category="ALL"]');
     if (allChip) allChip.textContent = t.allResults;
+
+    const langTitle = document.querySelector('.lang-modal h3');
+    if (langTitle) langTitle.textContent = t.selectLang;
 
     // Update nav labels
     const navItems = document.querySelectorAll('.nav-item');
