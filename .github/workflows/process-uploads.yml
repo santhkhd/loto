@@ -1,0 +1,38 @@
+name: Process Manual Uploads
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'note/**.json'
+
+jobs:
+  process-uploads:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+    
+    - name: Process manual uploads
+      run: |
+        python process_manual_uploads.py
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add result_manifest.json history.json note/latest.json
+        git diff --staged --quiet || (git commit -m "chore: update manifest and history from manual uploads" && git push)

@@ -1,0 +1,58 @@
+name: Update Kerala Lottery Results
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run at 10:15 AM and 10:30 AM UTC (3:45 PM and 4:00 PM IST) to catch results as they're published
+    - cron: "15 10 * * *"
+    - cron: "30 10 * * *"
+
+concurrency:
+  group: update-results
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run updater
+        run: |
+          set -e
+          python updateloto.py
+
+      - name: Generate manifest and history
+        run: |
+          node generate-manifest.js
+          node generate-history.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage possible outputs
+          git add note/*.json result_manifest.json history.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update results & artifacts $(date -u +'%Y-%m-%d %H:%M:%SZ')"
+            git push
+          fi
