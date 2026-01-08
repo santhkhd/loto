@@ -1,0 +1,79 @@
+{
+  "lottery_name": "Unknown",
+  "draw_number": "XX",
+  "draw_date": "2025-10-05",
+  "venue": "",
+  "prizes": {
+    "1st_prize": {
+      "amount": 10000000,
+      "label": "1st Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "consolation_prize": {
+      "amount": 5000,
+      "label": "Consolation Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "2nd_prize": {
+      "amount": 3000000,
+      "label": "2nd Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "3rd_prize": {
+      "amount": 500000,
+      "label": "3rd Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "4th_prize": {
+      "amount": 5000,
+      "label": "4th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "5th_prize": {
+      "amount": 2000,
+      "label": "5th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "6th_prize": {
+      "amount": 1000,
+      "label": "6th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "7th_prize": {
+      "amount": 500,
+      "label": "7th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "8th_prize": {
+      "amount": 200,
+      "label": "8th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    },
+    "9th_prize": {
+      "amount": 100,
+      "label": "9th Prize",
+      "winners": [
+        "Please wait, results will be published at 3 PM."
+      ]
+    }
+  },
+  "downloadLink": ""
+}
