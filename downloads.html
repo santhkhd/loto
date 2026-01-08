@@ -75,11 +75,9 @@
             <button class="theme-toggle" id="theme-toggle">
                 <i class="material-icons">dark_mode</i>
             </button>
-            <div class="lang-selector" id="lang-selector">
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="ml">ML</button>
-                <button class="lang-btn" data-lang="ta">TA</button>
-            </div>
+            <button class="lang-toggle" id="lang-toggle">
+                <i class="material-icons">translate</i>
+            </button>
         </header>
 
         <div class="pdf-list" id="pdf-container">
@@ -109,6 +107,27 @@
                 <span>Download</span>
             </a>
         </nav>
+
+        <!-- Language Modal -->
+        <div class="lang-modal-overlay" id="lang-modal-overlay">
+            <div class="lang-modal">
+                <h3>Select Language</h3>
+                <div class="lang-options">
+                    <div class="lang-option" data-lang="en">
+                        <span>English</span>
+                        <i class="material-icons">check_circle</i>
+                    </div>
+                    <div class="lang-option" data-lang="ml">
+                        <span>മലയാളം</span>
+                        <i class="material-icons">check_circle</i>
+                    </div>
+                    <div class="lang-option" data-lang="ta">
+                        <span>தமிழ்</span>
+                        <i class="material-icons">check_circle</i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>
