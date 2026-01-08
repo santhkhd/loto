@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build output
+dist/
+
+# Environment files
+.env
+
+# macOS system files
+.DS_Store
+
+# HTML and CSS tracking rules
+# *.html
+# *.css
+downloads.html
+!downloads.html

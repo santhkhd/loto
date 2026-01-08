@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Lucky Predictor - Kerala Lottery</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .lucky-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .btn-action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-action:active {
+      transform: scale(0.95);
+      background: var(--primary-light);
+    }
+
+    .btn-action i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .btn-action span {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      padding: 0 16px;
+      margin-top: 20px;
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .prime-result {
+      margin: 10px 16px;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .prime-val {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .more-numbers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 16px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .small-num {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .small-num span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="title-group">
+        <h1>Lucky Predictor</h1>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">
+        <i class="material-icons">dark_mode</i>
+      </button>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ml">ML</button>
+        <button class="lang-btn" data-lang="ta">TA</button>
+      </div>
+    </header>
+
+    <div class="lucky-controls">
+      <div class="btn-action" onclick="generate('hot')">
+        <i class="material-icons" style="color: #ef4444">local_fire_department</i>
+        <span>Hot Picks</span>
+      </div>
+      <div class="btn-action" onclick="generate('repeat')">
+        <i class="material-icons" style="color: #8b5cf6">repeat_on</i>
+        <span>Repeats</span>
+      </div>
+      <div class="btn-action" onclick="generate('cold')">
+        <i class="material-icons" style="color: #3b82f6">ac_unit</i>
+        <span>Cold Zero</span>
+      </div>
+      <div class="btn-action" onclick="generate('random')">
+        <i class="material-icons" style="color: #f59e0b">casino</i>
+        <span>Random</span>
+      </div>
+    </div>
+
+    <div id="prediction-results" style="display: none;">
+      <div class="section-title" id="title-6">6-DIGIT PREDICTIONS</div>
+      <div class="prime-result">
+        <div class="prime-val" id="big-6">------</div>
+      </div>
+      <div class="more-numbers" id="pool-6"></div>
+
+      <div class="section-title" id="title-4">4-DIGIT PREDICTIONS</div>
+      <div class="prime-result" style="background: var(--accent);">
+        <div class="prime-val" id="big-4">----</div>
+      </div>
+      <div class="more-numbers" id="pool-4"></div>
+    </div>
+
+    <div class="results-container" style="padding: 20px 16px">
+      <div class="result-card" style="border-style: dashed; opacity: 0.6; text-align: center; padding: 20px;">
+        <p style="font-size: 0.8rem; font-weight: 600;">ALGORITHMIC PREDICTION<br>Based on historical patterns</p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <p>DISCLAIMER: Predictions are generated for entertainment based on historical data. Lottery depends on chance.
+        Play responsibly.</p>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item">
+        <i class="material-icons">home</i>
+        <span>Results</span>
+      </a>
+      <a href="live.html" class="nav-item">
+        <i class="material-icons">live_tv</i>
+        <span>Live</span>
+      </a>
+      <a href="prediction.html" class="nav-item active">
+        <i class="material-icons">star</i>
+        <span>Lucky</span>
+      </a>
+      <a href="search.html" class="nav-item">
+        <i class="material-icons">search</i>
+        <span>Search</span>
+      </a>
+      <a href="downloads.html" class="nav-item">
+        <i class="material-icons">picture_as_pdf</i>
+        <span>Download</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    let freq6 = {};
+    let freq4 = {};
+    let all6 = [];
+    let all4 = [];
+
+    async function fetchData() {
+      try {
+        const res = await fetch('history.json');
+        const data = await res.json();
+        data.forEach(d => {
+          (d.numbers6 || []).forEach(n => {
+            freq6[n] = (freq6[n] || 0) + 1;
+            all6.push(n);
+          });
+          (d.numbers4 || []).forEach(n => {
+            freq4[n] = (freq4[n] || 0) + 1;
+            all4.push(n);
+          });
+        });
+      } catch (e) { console.error(e); }
+    }
+
+    function generate(type) {
+      document.getElementById('prediction-results').style.display = 'block';
+      const pool6 = document.getElementById('pool-6');
+      const pool4 = document.getElementById('pool-4');
+      const big6 = document.getElementById('big-6');
+      const big4 = document.getElementById('big-4');
+
+      pool6.innerHTML = '';
+      pool4.innerHTML = '';
+
+      let list6 = [];
+      let list4 = [];
+
+      if (type === 'hot') {
+        list6 = Object.entries(freq6).sort((a, b) => b[1] - a[1]).slice(0, 15);
+        list4 = Object.entries(freq4).sort((a, b) => b[1] - a[1]).slice(0, 15);
+      } else if (type === 'cold') {
+        list6 = Object.entries(freq6).sort((a, b) => a[1] - b[1]).slice(0, 15);
+        list4 = Object.entries(freq4).sort((a, b) => a[1] - b[1]).slice(0, 15);
+      } else if (type === 'random') {
+        const r6 = [...all6].sort(() => Math.random() - 0.5).slice(0, 15);
+        const r4 = [...all4].sort(() => Math.random() - 0.5).slice(0, 15);
+        list6 = r6.map(n => [n, 1]);
+        list4 = r4.map(n => [n, 1]);
+      } else if (type === 'repeat') {
+        list6 = Object.entries(freq6).filter(x => x[1] > 1).sort((a, b) => b[1] - a[1]).slice(0, 15);
+        list4 = Object.entries(freq4).filter(x => x[1] > 1).sort((a, b) => b[1] - a[1]).slice(0, 15);
+      }
+
+      // Render 6-Digit
+      if (list6.length > 0) {
+        big6.textContent = list6[0][0];
+        list6.slice(1).forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'small-num';
+          div.innerHTML = `${item[0]}${type === 'repeat' || type === 'hot' ? `<span>(${item[1]}x)</span>` : ''}`;
+          pool6.appendChild(div);
+        });
+      } else { big6.textContent = "----"; }
+
+      // Render 4-Digit
+      if (list4.length > 0) {
+        big4.textContent = list4[0][0];
+        list4.slice(1).forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'small-num';
+          div.innerHTML = `${item[0]}${type === 'repeat' || type === 'hot' ? `<span>(${item[1]}x)</span>` : ''}`;
+          pool4.appendChild(div);
+        });
+      } else { big4.textContent = "----"; }
+    }
+
+    fetchData();
+  </script>
+</body>
+
+</html>

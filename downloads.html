@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Download Results - Kerala Lottery</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .pdf-list {
+            padding: 16px;
+        }
+
+        .pdf-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .pdf-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pdf-title {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .pdf-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .btn-download {
+            background: #ef4444;
+            /* PDF red color */
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+        }
+
+        body.dark .pdf-card {
+            background: #1f2937;
+            border-color: #374151;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="title-group">
+                <h1>Download Results</h1>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="material-icons">dark_mode</i>
+            </button>
+            <div class="lang-selector" id="lang-selector">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ml">ML</button>
+                <button class="lang-btn" data-lang="ta">TA</button>
+            </div>
+        </header>
+
+        <div class="pdf-list" id="pdf-container">
+            <!-- Dynamic Content -->
+            <div class="skeleton" style="height: 80px; border-radius: 16px;"></div>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+                <span>Results</span>
+            </a>
+            <a href="live.html" class="nav-item">
+                <i class="material-icons">live_tv</i>
+                <span>Live</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+                <i class="material-icons">star</i>
+                <span>Lucky</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <i class="material-icons">search</i>
+                <span>Search</span>
+            </a>
+            <a href="downloads.html" class="nav-item active">
+                <i class="material-icons">picture_as_pdf</i>
+                <span>Download</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('pdf-container');
+
+            try {
+                // Fetch the manual data file
+                const res = await fetch('pdf_data.json');
+                const data = await res.json();
+
+                container.innerHTML = '';
+
+                data.forEach(item => {
+                    const card = document.createElement('a');
+                    card.className = 'pdf-card fade-in';
+                    card.href = item.url;
+                    card.target = '_blank'; // Open PDF/Link in new tab
+
+                    card.innerHTML = `
+                        <div class="pdf-info">
+                            <div class="pdf-title">${item.lottery}</div>
+                            <div class="pdf-meta">Draw: ${item.draw_no} • ${item.date}</div>
+                        </div>
+                        <div class="btn-download">
+                            <i class="material-icons">picture_as_pdf</i>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (e) {
+                console.error(e);
+                container.innerHTML = '<div class="empty-state"><p>Failed to load downloads.</p></div>';
+            }
+        });
+    </script>
+</body>
+
+</html>

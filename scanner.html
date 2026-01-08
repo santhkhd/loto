@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Smart Scanner - Kerala Lottery</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .scanner-viewport {
+            margin: 20px 16px;
+            aspect-ratio: 1;
+            background: #000;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border);
+        }
+
+        .scan-anim {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                top: 0;
+            }
+
+            50% {
+                top: 100%;
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+
+        .scanner-hud {
+            text-align: center;
+            color: white;
+            z-index: 10;
+        }
+
+        .scanner-hud i {
+            font-size: 4rem;
+            opacity: 0.5;
+        }
+
+        .scanner-hud p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        .manual-input {
+            padding: 16px;
+        }
+
+        .input-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .input-box label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .input-box input {
+            border: none;
+            width: 100%;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: 700;
+            outline: none;
+            color: var(--text-main);
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .status-card {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .status-card i {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+
+        .status-card h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+
+        .status-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 8px 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <h1>Smart Scanner</h1>
+        </header>
+
+        <div class="scanner-viewport">
+            <div class="scan-anim"></div>
+            <div class="scanner-hud">
+                <i class="material-icons">qr_code_scanner</i>
+                <p>Ready to Verify</p>
+            </div>
+        </div>
+
+        <div class="manual-input">
+            <div class="input-box">
+                <label>Full Ticket Number</label>
+                <input type="text" id="ticket-full" placeholder="Ex: XX 123456" maxlength="9">
+            </div>
+            <div class="input-box">
+                <label>Draw Date</label>
+                <input type="date" id="draw-date">
+            </div>
+            <button class="search-btn" onclick="verify()"
+                style="width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer;">Verify
+                Ticket</button>
+        </div>
+
+        <div class="disclaimer">
+            <p>SCANNER DISCLAIMER: Hand-entered verification is subject to typos. Always check official Gazette results
+                before discarding any ticket.</p>
+        </div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+                <span>Results</span>
+            </a>
+            <a href="live.html" class="nav-item">
+                <i class="material-icons">live_tv</i>
+                <span>Live</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+                <i class="material-icons">star</i>
+                <span>Lucky</span>
+            </a>
+            <a href="search.html" class="nav-item">
+                <i class="material-icons">search</i>
+                <span>Search</span>
+            </a>
+            <a href="scanner.html" class="nav-item active">
+                <i class="material-icons">qr_code_scanner</i>
+                <span>Scanner</span>
+            </a>
+        </nav>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="this.style.display='none'">
+        <div class="status-card" id="status-card">
+            <!-- Dynamic Status -->
+        </div>
+    </div>
+
+    <script src="app.js"></script> <!-- Link for theme support -->
+    <script>
+        let historyData = [];
+        async function init() {
+            const res = await fetch('history.json');
+            historyData = await res.json();
+            document.getElementById('draw-date').valueAsDate = new Date();
+        }
+        init();
+
+        function verify() {
+            const ticket = document.getElementById('ticket-full').value.trim();
+            const date = document.getElementById('draw-date').value;
+            const overlay = document.getElementById('overlay');
+            const card = document.getElementById('status-card');
+
+            if (!ticket || !date) return;
+
+            // Simple logic: check history for exact date
+            const record = historyData.find(h => h.date === date);
+
+            overlay.style.display = 'flex';
+
+            if (!record) {
+                card.innerHTML = `<i class="material-icons" style="color:var(--text-muted)">event_busy</i><h3>No Data</h3><p>Results for this date are not yet available.</p>`;
+                return;
+            }
+
+            const isWinner = record.numbers6.some(n => n.includes(ticket.slice(-6))) || record.numbers4.some(n => n === ticket.slice(-4));
+
+            if (isWinner) {
+                card.innerHTML = `<i class="material-icons" style="color:var(--accent)">workspace_premium</i><h3 style="color:var(--accent)">WINNER!</h3><p>Your ticket matches a winning number. Check full result for prize tier.</p>`;
+            } else {
+                card.innerHTML = `<i class="material-icons" style="color:#ef4444">sentiment_dissatisfied</i><h3>Try Again</h3><p>No match found for this draw. Better luck next time!</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

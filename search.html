@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Verify Ticket - Kerala Lottery</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .search-wrapper {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .field-box {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 8px 12px;
+            flex: 1;
+            min-width: 140px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s;
+        }
+
+        .field-box:focus-within {
+            border-color: var(--primary);
+        }
+
+        .field-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .field-input {
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            width: 100%;
+            background: transparent;
+            text-transform: uppercase;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .btn-check {
+            flex: 1;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-clear {
+            flex: 1;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Result Styles */
+        .winner-banner {
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 0 16px 16px 16px;
+            border: 1px solid #10b981;
+            animation: slideDown 0.4s ease-out;
+            display: none;
+        }
+
+        .winner-banner.show {
+            display: block;
+        }
+
+        .winner-banner h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #059669;
+        }
+
+        .winner-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 0 16px;
+            text-align: center;
+            border: 1px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .winner-card.show {
+            display: block;
+        }
+
+        .prize-title {
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .prize-amount {
+            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 8px 0;
+        }
+
+        .view-btn {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        body.dark .winner-banner {
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border-color: #059669;
+        }
+
+        body.dark .winner-card span#p-number {
+            background: #374151 !important;
+            color: white !important;
+        }
+
+        body.dark .winner-card span {
+            color: #9ca3af;
+            /* muted text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="title-group">
+                <h1>Check Ticket</h1>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="material-icons">dark_mode</i>
+            </button>
+            <div class="lang-selector" id="lang-selector">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ml">ML</button>
+                <button class="lang-btn" data-lang="ta">TA</button>
+            </div>
+        </header>
+
+        <div class="search-wrapper">
+            <div class="input-row">
+                <div class="field-box">
+                    <span class="field-label">Ticket Number</span>
+                    <input type="text" id="ticket-input" class="field-input" placeholder="e.g. PG 247439">
+                </div>
+                <div class="field-box">
+                    <span class="field-label">Select Date</span>
+                    <input type="date" id="date-input" class="field-input" style="font-family: inherit;">
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn-check" onclick="verifyTicket()">
+                    <i class="material-icons">search</i> Check
+                </button>
+                <button class="btn-clear" onclick="clearSearch()">
+                    <i class="material-icons">close</i> Clear
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Banner -->
+        <div id="win-banner" class="winner-banner">
+            <h3><i class="material-icons">celebration</i> YOU ARE A WINNER!</h3>
+            <p>Found 1 winning entry. Congratulations on your win!</p>
+        </div>
+
+        <!-- Result Card -->
+        <div id="win-card" class="winner-card">
+            <div class="prize-title" id="p-rank">1st Prize</div>
+            <div>
+                <span style="color:#6b7280; font-weight:600;">Number:</span>
+                <span id="p-number"
+                    style="font-weight:800; background:#f3f4f6; padding:4px 8px; border-radius:6px;">--</span>
+            </div>
+            <div class="prize-amount" id="p-amount">₹0</div>
+            <div style="color:#6b7280; font-weight:600; margin-bottom:12px;">Date: <span id="p-date">--</span></div>
+            <a href="#" id="p-link" class="view-btn">View Full Result Page</a>
+        </div>
+
+        <div id="status-msg" style="text-align:center; color:#6b7280; margin-top:20px; font-weight:600;"></div>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="material-icons">home</i>
+                <span>Results</span>
+            </a>
+            <a href="live.html" class="nav-item">
+                <i class="material-icons">live_tv</i>
+                <span>Live</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+                <i class="material-icons">star</i>
+                <span>Lucky</span>
+            </a>
+            <a href="search.html" class="nav-item active">
+                <i class="material-icons">search</i>
+                <span>Search</span>
+            </a>
+            <a href="downloads.html" class="nav-item">
+                <i class="material-icons">picture_as_pdf</i>
+                <span>Download</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // historyData is already declared in app.js
+
+
+        async function initData() {
+            try {
+                const res = await fetch('history.json');
+                historyData = await res.json();
+            } catch (e) { console.error(e); }
+        }
+        initData();
+
+        function clearSearch() {
+            document.getElementById('ticket-input').value = '';
+            document.getElementById('date-input').value = '';
+            document.getElementById('win-banner').classList.remove('show');
+            document.getElementById('win-card').classList.remove('show');
+            document.getElementById('status-msg').textContent = '';
+        }
+
+        async function verifyTicket() {
+            const rawNum = document.getElementById('ticket-input').value.trim();
+            const dateVal = document.getElementById('date-input').value;
+            const pureNum = rawNum.replace(/[^0-9]/g, '');
+
+            if (!rawNum && !dateVal) {
+                alert("Please enter a ticket number or date.");
+                return;
+            }
+
+            const status = document.getElementById('status-msg');
+            status.textContent = "Checking official records...";
+            document.getElementById('win-banner').classList.remove('show');
+            document.getElementById('win-card').classList.remove('show');
+
+            if (historyData.length === 0) await initData();
+
+            // 1. Filter candidates from history
+            // 1. Filter candidates from history
+            let candidates = historyData.filter(h => {
+                if (dateVal && h.date !== dateVal) return false;
+                // If a date is selected, ALWAYS consider it a candidate to start with
+                if (dateVal) return true;
+
+                if (pureNum) {
+                    const n4 = h.numbers4 || [];
+                    const n6 = h.numbers6 || [];
+
+                    const match4 = n4.some(x => pureNum.endsWith(x) || x.endsWith(pureNum));
+                    const match6 = n6.some(x => x.includes(pureNum));
+
+                    return match4 || match6;
+                }
+                return true;
+            }).slice(0, 10);
+
+            // Fallback: If no date selected and no number match found, 
+            // but we want to show *something* relevant (e.g. today's result) if they just clicked check?
+            // Actually, if candidates is empty here, it means no file matched the date OR no file matched the number.
+
+            if (candidates.length === 0 && dateVal) {
+                // Date was selected but maybe historyData doesn't have it? 
+                // Or logic above filtered it out? (Won't happen with new logic above).
+            }
+
+            if (candidates.length === 0) {
+                status.textContent = "No Match Found. Better luck next time!";
+                return;
+            }
+
+            // 2. Deep Check: Fetch full JSON to get prize info
+            let winnerFound = null;
+
+            for (const cand of candidates) {
+                try {
+                    const res = await fetch('note/' + cand.filename);
+                    if (!res.ok) continue;
+                    const data = await res.json();
+
+                    // Check Prizes
+                    const order = ['1st_prize', 'consolation_prize', '2nd_prize', '3rd_prize', '4th_prize', '5th_prize', '6th_prize', '7th_prize', '8th_prize', '9th_prize'];
+
+                    for (const rank of order) {
+                        const p = data.prizes[rank];
+                        if (!p) continue;
+
+                        // Check if user input matches any winner string
+                        // We support "PG 247439" (exact) or "247439" (suffix match)
+                        const exactMatch = p.winners.find(w => {
+                            const cleanW = w.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+                            const cleanIn = rawNum.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+
+                            // If user typed codes (e.g. PG24...), check includes
+                            if (cleanIn.length > 6) {
+                                return cleanW.includes(cleanIn) || cleanIn.includes(cleanW);
+                            }
+
+                            // 4-Digit Search Logic:
+                            // We strictly check if the winning number ENDS WITH the input if input is 4 digits.
+                            // This covers cases where user has last 4 digits "5963" and winner is "NZ 525963".
+                            if (pureNum.length === 4) {
+                                return cleanW.endsWith(pureNum);
+                            }
+
+                            // General fallback
+                            return w.endsWith(pureNum) || w.includes(pureNum);
+                        });
+
+                        if (exactMatch) {
+                            winnerFound = {
+                                rank: p.label || rank.replace('_', ' ').toUpperCase(),
+                                amount: p.amount,
+                                number: exactMatch,
+                                date: data.draw_date,
+                                file: cand.filename
+                            };
+                            break;
+                        }
+                    }
+                    if (winnerFound) break;
+                } catch (e) { console.error(e); }
+            }
+
+            // 3. Render
+            status.textContent = "";
+            if (winnerFound) {
+                document.getElementById('win-banner').classList.add('show');
+                document.getElementById('win-card').classList.add('show');
+
+                document.getElementById('p-rank').textContent = winnerFound.rank;
+                document.getElementById('p-number').textContent = winnerFound.number;
+                document.getElementById('p-amount').textContent = "₹" + parseInt(winnerFound.amount).toLocaleString();
+                document.getElementById('p-date').textContent = winnerFound.date;
+
+                const isLocal = window.location.protocol === 'file:';
+                const targetPage = isLocal ? 'result.html' : 'result';
+                document.getElementById('p-link').href = `${targetPage}?file=${winnerFound.file}`;
+            } else {
+                // Show "No Match" but also provide link to the result if we checked a specific file candidate
+                let linkHtml = '';
+                if (candidates.length > 0) {
+                    const isLocal = window.location.protocol === 'file:';
+                    const targetPage = isLocal ? 'result.html' : 'result';
+                    // Use the first candidate file as the most likely intended result
+                    linkHtml = `<br><br><a href="${targetPage}?file=${candidates[0].filename}" class="view-btn" style="background:#6b7280; font-size:0.9rem;">View Full Result Page</a>`;
+                }
+
+                status.innerHTML = `<i class="material-icons" style="font-size:2rem; display:block">sentiment_dissatisfied</i><br>No winning prize found for <strong>${rawNum}</strong>.${linkHtml}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

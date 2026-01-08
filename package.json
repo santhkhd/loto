@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "jsdom": "^26.1.0",
+    "node-fetch": "^2.7.0",
+    "puppeteer": "^24.12.1"
+  },
+  "name": "new-folder",
+  "version": "1.0.0",
+  "description": "A modern, mobile-friendly, multilingual Kerala lottery results site powered by static files and real historical data.",
+  "main": "generate-history.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}

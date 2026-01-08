@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Draw Details - Kerala Lottery</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .prize-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prize-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .prize-val {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .winners-box {
+      background: var(--bg);
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .winner-tag {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .winner-tag.highlight {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .meta-header {
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .meta-header h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .meta-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="title-group" style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="color: white; text-decoration: none;"><i class="material-icons">arrow_back</i></a>
+        <h1>Result Details</h1>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">
+        <i class="material-icons">dark_mode</i>
+      </button>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ml">ML</button>
+        <button class="lang-btn" data-lang="ta">TA</button>
+      </div>
+    </header>
+
+    <div class="meta-header" id="meta">
+      <h2 id="loto-name">Loading...</h2>
+      <p id="loto-meta">Draw No: -- | Date: --</p>
+    </div>
+
+    <!-- Search in Result Feature -->
+    <div style="padding: 0 16px 16px 16px;">
+      <div class="input-group" style="display:flex; gap:8px;">
+        <input type="text" id="check-ticket" placeholder="Check number (e.g. 1234 or PN 1234)"
+          style="flex:1; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--card-bg); color:var(--text-main); font-weight:700; outline:none; text-transform: uppercase;">
+        <button onclick="checkResult()"
+          style="background:var(--primary); color:white; border:none; padding:0 20px; border-radius:12px; font-weight:700;">CHECK</button>
+      </div>
+      <div id="check-msg" style="margin-top:12px; display:none;"></div>
+    </div>
+
+    <div class="results-container" style="padding: 0 0 20px 0;">
+      <div id="prizes-list">
+        <!-- Dynamic Prizes -->
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <p>RESULT DISCLAIMER: Please verify all prize claims with the Kerala State Lottery Department's official Gazette.
+        We are not responsible for transcription errors.</p>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="material-icons">home</i>
+        <span>Results</span>
+      </a>
+      <a href="live.html" class="nav-item">
+        <i class="material-icons">live_tv</i>
+        <span>Live</span>
+      </a>
+      <a href="prediction.html" class="nav-item">
+        <i class="material-icons">star</i>
+        <span>Lucky</span>
+      </a>
+      <a href="search.html" class="nav-item">
+        <i class="material-icons">search</i>
+        <span>Search</span>
+      </a>
+      <a href="downloads.html" class="nav-item">
+        <i class="material-icons">picture_as_pdf</i>
+        <span>Download</span>
+      </a>
+    </nav>
+  </div>
+  <script>
+    let currentData = null;
+
+    async function init() {
+      const getParam = (name) => {
+        return new URLSearchParams(window.location.search).get(name);
+      };
+
+      const file = getParam('file');
+
+      if (!file) {
+        window.location.replace('index.html');
+        return;
+      }
+
+      try {
+        const res = await fetch('note/' + file);
+        if (!res.ok) throw new Error("File not found");
+        currentData = await res.json(); // Store global for search
+        render(currentData);
+      } catch (e) {
+        console.error(e);
+        document.getElementById('loto-name').textContent = "Result Not Found";
+      }
+    }
+
+    function checkResult() {
+      const num = document.getElementById('check-ticket').value.trim();
+      const msgBox = document.getElementById('check-msg');
+
+      if (!num || num.length < 4) {
+        alert("Please enter at least last 4 digits");
+        return;
+      }
+
+      let foundPrize = null;
+      let matchedFull = null;
+
+      // Search logic
+      const order = ['1st_prize', 'consolation_prize', '2nd_prize', '3rd_prize', '4th_prize', '5th_prize', '6th_prize', '7th_prize', '8th_prize', '9th_prize'];
+
+      for (const key of order) {
+        const p = currentData.prizes[key];
+        if (!p) continue;
+
+        // Check winners array
+        const exactMatch = p.winners.find(w => w.endsWith(num) || w.includes(num)); // flexible matching
+        if (exactMatch) {
+          foundPrize = p;
+          matchedFull = exactMatch;
+          break;
+        }
+      }
+
+      msgBox.style.display = 'block';
+      if (foundPrize) {
+        msgBox.innerHTML = `
+                <div style="background: #ecfdf5; border: 1px solid #10b981; border-radius: 12px; padding: 16px; text-align: center; animation: fadeIn 0.5s;">
+                    <i class="material-icons" style="font-size: 3rem; color: #10b981;">emoji_events</i>
+                    <h3 style="color: #065f46; font-size: 1.2rem; margin: 8px 0;">CONGRATULATIONS!</h3>
+                    <p style="color: #047857; font-weight: 600;">You won ${foundPrize.label}!</p>
+                    <p style="font-size: 1.5rem; font-weight: 800; color: #059669; margin-top: 4px;">₹${parseInt(foundPrize.amount).toLocaleString()}</p>
+                    <div style="margin-top:8px; font-size:0.8rem; background:white; padding:4px 8px; border-radius:6px; display:inline-block; border:1px solid #a7f3d0; color:#047857;">Ticket: ${matchedFull}</div>
+                </div>
+            `;
+        // Scroll to msg
+        msgBox.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        msgBox.innerHTML = `
+                <div style="background: #fef2f2; border: 1px solid #ef4444; border-radius: 12px; padding: 16px; text-align: center; animation: fadeIn 0.3s;">
+                    <i class="material-icons" style="font-size: 3rem; color: #ef4444;">sentiment_dissatisfied</i>
+                    <h3 style="color: #991b1b; font-size: 1.1rem; margin: 8px 0;">Better Luck Next Time</h3>
+                    <p style="color: #b91c1c;">No prize found for number <strong>${num}</strong> in this draw.</p>
+                </div>
+            `;
+      }
+    }
+
+    function render(data) {
+      document.getElementById('loto-name').textContent = data.lottery_name;
+      document.getElementById('loto-meta').textContent = `Draw No: ${data.draw_number} | Date: ${data.draw_date.split('-').reverse().join('/')}`;
+
+      const list = document.getElementById('prizes-list');
+      const order = ['1st_prize', 'consolation_prize', '2nd_prize', '3rd_prize', '4th_prize', '5th_prize', '6th_prize', '7th_prize', '8th_prize', '9th_prize'];
+
+      order.forEach(key => {
+        const prize = data.prizes[key];
+        if (!prize) return;
+
+        const row = document.createElement('div');
+        row.className = 'prize-row';
+        row.innerHTML = `
+                    <div class="prize-label">${prize.label || key.replace('_', ' ')}</div>
+                    <div class="prize-val">₹${parseInt(prize.amount).toLocaleString()}</div>
+                `;
+
+        const winBox = document.createElement('div');
+        winBox.className = 'winners-box';
+        winBox.innerHTML = prize.winners.map(w => `<span class="winner-tag">${w}</span>`).join('');
+
+        list.appendChild(row);
+        list.appendChild(winBox);
+      });
+    }
+    init();
+  </script>
+  <script src="app.js"></script> <!-- Theme Support -->
+</body>
+
+</html>

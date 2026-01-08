@@ -1,0 +1,38 @@
+2025-11-08 15:25:23,419 - WARNING - GITHUB_TOKEN not set. Auto-push to GitHub will not work.
+2025-11-08 15:25:23,419 - INFO - Please set GITHUB_TOKEN in your environment variables for automatic GitHub pushes.
+2025-11-08 15:25:23,419 - INFO - Starting Kerala lottery result scheduler...
+2025-11-08 15:25:23,419 - INFO - Current time: 2025-11-08 15:25:23 IST
+2025-11-08 15:25:23,419 - INFO - Scheduler started - will check every 15 minutes
+2025-11-08 15:25:23,419 - INFO - Active time: 2:45 PM to 5:30 PM IST daily
+2025-11-08 15:25:23,427 - INFO - Press Ctrl+C to stop the scheduler
+2025-11-08 15:25:23,427 - INFO - Scheduler check at 15:25:23 IST
+2025-11-08 15:25:23,427 - INFO - Within scheduled time range - running lottery scraper
+2025-11-08 15:25:23,427 - INFO - Running lottery scraper at 2025-11-08 15:25:23 IST
+2025-11-08 15:25:59,267 - INFO - Lottery scraper completed successfully
+2025-11-08 15:25:59,268 - INFO - Output: 
+==================================================
+Checking for new results at 2025-11-08 15:25:24 IST
+==================================================
+Homepage links: abs=23 candidates=23
+Candidate: https://www.facebook.com/people/Kerala-Lottery-Results/100094590109908/
+Candidate: https://www.kllotteryresult.com/kerala-lottery-result-BT-27
+Candidate: https://www.kllotteryresult.com/kerala-lottery-result-BT-28
+Candidate: https://www.kllotteryresult.com/kerala-lottery-result-DL-24
+Candidate: https://www.kllotteryresult.com/kerala-lottery-result-DL-25
+Skip https://www.facebook.com/people/Kerala-Lottery-Results/100094590109908/: no date found
+Skip https://www.kllotteryresult.com/kerala-lottery-result-BT-28: future date 2025-11-10
+Skip https://www.kllotteryresult.com/kerala-lottery-result-DL-26: future date 2025-11-12
+Skip https://www.kllotteryresult.com/kerala-lottery-result-KN-597: future date 2025-11-13
+Skip https://www.kllotteryresult.com/kerala-lottery-result-KR-731: future date 2025-11-15
+Skip https://www.kllotteryresult.com/kerala-lottery-result-SK-27: future date 2025-11-14
+Skip https://www.kllotteryresult.com/kerala-lottery-result-SM-28: future date 2025-11-09
+Skip https://www.kllotteryresult.com/kerala-lottery-result-SM-29: future date 2025-11-16
+Skip https://www.kllotteryresult.com/kerala-lottery-result-SS-493: future date 2025-11-11
+Processing latest result: https://www.kllotteryresult.com/kerala-lottery-result-KR-730
+TITLE TEXT: 'Live  Kerala Lottery Result Today 08.11.2025 Karunya (KR-730) - Full Winning Numbers'
+Saved to: C:\Users\santh\OneDrive\Desktop\lotter\kerala_loto-main\note\KR-730-2025-11-08.json
+Latest result saved to: C:\Users\santh\OneDrive\Desktop\lotter\kerala_loto-main\note\latest.json
+New JSON file created successfully.
+Script execution completed.
+
+2025-11-08 15:30:07,035 - INFO - Scheduler stopped by user

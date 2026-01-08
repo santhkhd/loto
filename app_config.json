@@ -1,0 +1,193 @@
+{
+  "ads_config": {
+    "enabled": true,
+    "last_updated": "2025-08-31T08:30:00+05:30",
+    "app_open_ads": {
+      "enabled": true,
+      "ad_unit_id": "ca-app-pub-3940256099942544/3419835294",
+      "show_frequency": "on_app_open",
+      "min_background_time_hours": 4,
+      "timeout_hours": 4,
+      "show_on_resume": true,
+      "show_on_launch": true
+    },
+    "banner_ads": {
+      "enabled": true,
+      "ad_unit_id": "ca-app-pub-3940256099942544/6300978111",
+      "positions": {
+        "main_screen_top": true,
+        "main_screen_bottom": false,
+        "article_bottom": true,
+        "comments_section": false,
+        "rss_feed": true,
+        "category_screens": true
+      },
+      "refresh_rate_seconds": 60,
+      "animation_enabled": true,
+      "hide_on_scroll": true
+    },
+    "native_ads": {
+      "enabled": true,
+      "ad_unit_id": "ca-app-pub-3940256099942544/2247696110",
+      "types": {
+        "feed_item": {
+          "enabled": true,
+          "template": "medium_template",
+          "items_per_ad": 5,
+          "start_position": 2
+        },
+        "article_detail": {
+          "enabled": true,
+          "template": "small_template",
+          "position": "after_paragraph_2"
+        },
+        "exit_dialog": {
+          "enabled": true,
+          "ad_unit_id": "ca-app-pub-3940256099942544/2247696110"
+        }
+      },
+      "appearance": {
+        "show_label": true,
+        "label_text": "Sponsored",
+        "label_text_color": "#757575",
+        "label_background_color": "#F5F5F5"
+      }
+    },
+    "interstitial_ads": {
+      "enabled": true,
+      "frequency": 2,
+      "min_interval_seconds": 60,
+      "triggers": {
+        "on_article_open": false,
+        "on_category_change": false,
+        "on_video_play": true,
+        "on_app_exit": false,
+        "on_webview_open": true,
+        "on_rss_item_click": false
+      },
+      "frequency_based_ads": {
+        "enabled": true,
+        "current_frequency": 2,
+        "frequencies": [
+          {
+            "id": "high",
+            "value": 1,
+            "ad_unit_id": "ca-app-pub-3940256099942544/1033173712",
+            "description": "High frequency - shows every time"
+          },
+          {
+            "id": "medium",
+            "value": 2,
+            "ad_unit_id": "ca-app-pub-3940256099942544/1033173712",
+            "description": "Medium frequency - shows every 2nd time"
+          },
+          {
+            "id": "low",
+            "value": 3,
+            "ad_unit_id": "ca-app-pub-3940256099942544/1033173712",
+            "description": "Low frequency - shows every 3rd time"
+          }
+        ]
+      }
+    },
+    "rewarded_ads": {
+      "enabled": true,
+      "ad_unit_id": "ca-app-pub-3940256099942544/5224354917",
+      "use_cases": [
+        {
+          "id": "premium_content",
+          "title": "Watch Ad for Premium Content",
+          "description": "Watch a short video to unlock this premium content"
+        },
+        {
+          "id": "skip_wait",
+          "title": "Skip Waiting Time",
+          "description": "Watch an ad to skip the waiting period"
+        }
+      ]
+    },
+    "app_events": {
+      "track_impressions": true,
+      "track_clicks": true,
+      "track_conversions": true,
+      "anonymize_ip": true
+    },
+    "test_mode": {
+      "enabled": true,
+      "test_device_ids": [
+        "02DC0787CED2F9571E337DB96097298B",
+        "USE_YOUR_DEVICE_ID"
+      ],
+      "show_test_ads": true,
+      "show_debug_toast": true
+    },
+    "purchase_integration": {
+      "disable_ads_on_purchase": true,
+      "premium_user_no_ads": true,
+      "restore_purchases_button": true
+    },
+    "privacy": {
+      "gdpr_compliant": true,
+      "respect_do_not_track": true,
+      "require_consent_for_ads": true,
+      "show_consent_dialog": true,
+      "consent_dialog_style": "customizable"
+    },
+    "remote_config": {
+      "enabled": true,
+      "update_interval_hours": 24,
+      "cache_duration_hours": 6,
+      "fallback_to_local": true,
+      "remote_url": "https://your-server.com/ads-config.json"
+    },
+    "analytics": {
+      "track_ad_performance": true,
+      "log_level": "debug",
+      "crash_reporting": true
+    }
+  },
+  "overview": [
+    {
+      "title": "All Videos",
+      "provider": "json",
+      "arguments": ["videos.json"],
+      "image": "https://i4.ytimg.com/vi/cjdI356yyQA/hqdefault.jpg"
+    },
+    {
+      "title": "Channels",
+      "provider": "overview",
+      "arguments": ["channels.json" ],
+      "image": "https://i4.ytimg.com/vi/cjdI356yyQA/hqdefault.jpg"
+    },
+    {
+      "title": "Live Channels",
+      "provider": "json",
+      "arguments": ["live.json"],
+      "image": "https://example.com/live_icon.png"
+    },
+    {
+      "title": "Live TV",
+      "provider": "webview",
+      "arguments": ["https://www.google.com/"],
+      "image": "https://example.com/live_icon.png"
+    },
+    {
+      "title": "Tamil News",
+      "provider": "webview",
+      "arguments": ["https://news-site.com"],
+      "image": "https://placehold.co/600x400/8A2BE2/fff?text=News"
+    },
+    {
+      "title": "YouTube RSS",
+      "provider": "youtube",
+      "arguments": ["UCno6OgN7-NDmRTNBgqWevlw", "rss"],
+      "image": "https://placehold.co/600x400/E81123/fff?text=YouTube+RSS"
+    },
+    {
+      "title": "YouTube Playlist",
+      "provider": "youtube",
+      "arguments": ["PLZ47UtqJR_EEs0upD6ug8oc480FVwx7in", "playlist"],
+      "image": "https://placehold.co/600x400/FFB900/fff?text=Playlist"
+    }
+  ]
+}

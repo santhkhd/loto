@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Kerala Lottery - Results</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="title-group">
+        <h1>Kerala Lottery</h1>
+        <p id="today-date"></p>
+      </div>
+      <button class="theme-toggle" id="theme-toggle">
+        <i class="material-icons">dark_mode</i>
+      </button>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ml">ML</button>
+        <button class="lang-btn" data-lang="ta">TA</button>
+      </div>
+    </header>
+
+    <div id="offline-banner"
+      style="display: none; background: #ef4444; color: white; text-align: center; font-size: 0.75rem; font-weight: 700; padding: 4px; position: fixed; top: 56px; left: 0; right: 0; z-index: 900;">
+      OFFLINE MODE - CHECKING LIVE DATA...
+    </div>
+
+    <nav class="cat-scroller no-scrollbar" id="category-tabs">
+      <button class="cat-chip active" data-category="ALL">All Results</button>
+      <button class="cat-chip" data-category="KARUNYA">Karunya</button>
+      <button class="cat-chip" data-category="KARUNYA_PLUS">Karunya Plus</button>
+      <button class="cat-chip" data-category="SUVARNA_KERALAM">Suvarna Keralam</button>
+      <button class="cat-chip" data-category="STHREE_SAKTHI">Sthree Sakthi</button>
+      <button class="cat-chip" data-category="DHANALEKSHMI">Dhanalekshmi</button>
+      <button class="cat-chip" data-category="SAMRUDHI">Samrudhi</button>
+      <button class="cat-chip" data-category="BHAGYATHARA">Bhagyathara</button>
+    </nav>
+
+    <main class="results-container" id="results-list">
+      <!-- Skeleton Loaders -->
+      <div class="result-card skeleton" style="height: 120px"></div>
+      <div class="result-card skeleton" style="height: 120px"></div>
+      <div class="result-card skeleton" style="height: 120px"></div>
+    </main>
+
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <i class="material-icons">search_off</i>
+      <p id="empty-msg">No results found for this category.</p>
+    </div>
+
+    <div class="disclaimer">
+      <p>DISCLAIMER: We are not affiliated with the Kerala State Lottery Department. Digital results are for immediate
+        information only. Please verify with official Gazette publications.</p>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item active">
+        <i class="material-icons">home</i>
+        <span>Results</span>
+      </a>
+      <a href="live.html" class="nav-item">
+        <i class="material-icons">live_tv</i>
+        <span>Live</span>
+      </a>
+      <a href="prediction.html" class="nav-item">
+        <i class="material-icons">star</i>
+        <span>Lucky</span>
+      </a>
+      <a href="search.html" class="nav-item">
+        <i class="material-icons">search</i>
+        <span>Search</span>
+      </a>
+      <a href="downloads.html" class="nav-item">
+        <i class="material-icons">picture_as_pdf</i>
+        <span>Download</span>
+      </a>
+    </nav>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

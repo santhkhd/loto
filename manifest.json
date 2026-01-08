@@ -1,0 +1,22 @@
+{
+    "name": "Kerala Lottery Results",
+    "short_name": "Loto Kerala",
+    "name_ml": "കേരള ലോട്ടറി",
+    "description": "Fast access to Kerala lottery results and predictions.",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#f6f8fb",
+    "theme_color": "#1e40af",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -1,0 +1,896 @@
+2026-01-07 14:39:37,255 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 14:39:37,256 - INFO - Starting: Lottery Scraper
+2026-01-07 14:39:47,322 - INFO - Success: Lottery Scraper
+2026-01-07 14:39:47,322 - INFO - Output: Current time 14:39:37 IST is outside the optimal window (2:45 PM - 5:30 PM).
+The script will still attempt to fetch results, but they may be incomplete.
+Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Live  Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 14:39:47,325 - INFO - Starting: Manifest Generation
+2026-01-07 14:39:47,425 - INFO - Success: Manifest Generation
+2026-01-07 14:39:47,425 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 14:39:47,426 - INFO - Starting: History Generation
+2026-01-07 14:39:47,768 - INFO - Success: History Generation
+2026-01-07 14:39:47,769 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 14:39:47,769 - INFO - Checking for changes to commit...
+2026-01-07 14:39:47,902 - INFO - Starting: Git Add
+2026-01-07 14:39:49,527 - INFO - Success: Git Add
+2026-01-07 14:39:49,528 - INFO - Starting: Git Commit
+2026-01-07 14:39:49,758 - INFO - Success: Git Commit
+2026-01-07 14:39:49,758 - INFO - Output: [master (root-commit) 187e50d] Auto-update: 2026-01-07 14:39:49 IST
+ 278 files changed, 343914 insertions(+)
+ create mode 100644 .github/workflows/process-uploads.yml
+ create mode 100644 .github/workflows/update-results.yml
+ create mode 100644 .gitignore
+ create mode 100644 README.md
+ create mode 100644 app_config.json
+ create mode 100644 auto_scheduler.py
+ create mode 100644 check_github_token.bat
+ create mode 100644 deploy_to_github.bat
+ create mode 100644 download_server.py
+ create mode 100644 generate-history.js
+ create mode 100644 generate-manifest.js
+ create mode 100644 history.json
+ create mode 100644 index.html
+ create mode 100644 kerala_loto-main.zip
+ create mode 100644 lottery_scraper.py
+ create mode 100644 main.py
+ create mode 100644 note/BR-103-2025-05-28.json
+ create mode 100644 note/BR-104-2025-07-23.json
+ create mode 100644 note/BR-105-2025-10-04.json
+ create mode 100644 note/BR-106-2025-11-22.json
+ create mode 100644 note/BT-1-2025-05-05.json
+ create mode 100644 note/BT-10-2025-07-07.json
+ create mode 100644 note/BT-11-2025-07-14.json
+ create mode 100644 note/BT-12-2025-07-21.json
+ create mode 100644 note/BT-13-2025-07-28.json
+ create mode 100644 note/BT-14-2025-08-04.json
+ create mode 100644 note/BT-15-2025-08-11.json
+ create mode 100644 note/BT-16-2025-08-18.json
+ create mode 100644 note/BT-17-2025-08-25.json
+ create mode 100644 note/BT-18-2025-09-01.json
+ create mode 100644 note/BT-19-2025-09-08.json
+ create mode 100644 note/BT-2-2025-05-12.json
+ create mode 100644 note/BT-20-2025-09-15.json
+ create mode 100644 note/BT-21-2025-09-22.json
+ create mode 100644 note/BT-22-2025-09-29.json
+ create mode 100644 note/BT-23-2025-10-06.json
+ create mode 100644 note/BT-24-2025-10-13.json
+ create mode 100644 note/BT-25-2025-10-20.json
+ create mode 100644 note/BT-26-2025-10-27.json
+ create mode 100644 note/BT-27-2025-11-03.json
+ create mode 100644 note/BT-28-2025-11-10.json
+ create mode 100644 note/BT-29-2025-11-17.json
+ create mode 100644 note/BT-3-2025-05-19.json
+ create mode 100644 note/BT-30-2025-11-24.json
+ create mode 100644 note/BT-31-2025-12-01.json
+ create mode 100644 note/BT-32-2025-12-08.json
+ create mode 100644 note/BT-33-2025-12-15.json
+ create mode 100644 note/BT-34-2025-12-22.json
+ create mode 100644 note/BT-36-2026-01-05.json
+ create mode 100644 note/BT-4-2025-05-26.json
+ create mode 100644 note/BT-5-2025-06-02.json
+ create mode 100644 note/BT-6-2025-06-09.json
+ create mode 100644 note/BT-7-2025-06-16.json
+ create mode 100644 note/BT-8-2025-06-23.json
+ create mode 100644 note/BT-9-2025-06-30.json
+ create mode 100644 note/DL-1-2025-05-14.json
+ create mode 100644 note/DL-10-2025-07-16.json
+ create mode 100644 note/DL-11-2025-07-30.json
+ create mode 100644 note/DL-12-2025-08-06.json
+ create mode 100644 note/DL-13-2025-08-13.json
+ create mode 100644 note/DL-14-2025-08-20.json
+ create mode 100644 note/DL-15-2025-08-27.json
+ create mode 100644 note/DL-16-2025-09-03.json
+ create mode 100644 note/DL-17-2025-09-10.json
+ create mode 100644 note/DL-18-2025-09-17.json
+ create mode 100644 note/DL-19-2025-09-24.json
+ create mode 100644 note/DL-2-2025-05-21.json
+ create mode 100644 note/DL-20-2025-10-01.json
+ create mode 100644 note/DL-21-2025-10-08.json
+ create mode 100644 note/DL-22-2025-10-15.json
+ create mode 100644 note/DL-23-2025-10-22.json
+ create mode 100644 note/DL-24-2025-10-29.json
+ create mode 100644 note/DL-25-2025-11-05.json
+ create mode 100644 note/DL-26-2025-11-12.json
+ create mode 100644 note/DL-27-2025-11-19.json
+ create mode 100644 note/DL-28-2025-11-26.json
+ create mode 100644 note/DL-29-2025-12-03.json
+ create mode 100644 note/DL-3-2025-05-28.json
+ create mode 100644 note/DL-30-2025-12-10.json
+ create mode 100644 note/DL-31-2025-12-17.json
+ create mode 100644 note/DL-34-2026-01-07.json
+ create mode 100644 note/DL-4-2025-06-04.json
+ create mode 100644 note/DL-5-2025-06-11.json
+ create mode 100644 note/DL-6-2025-06-18.json
+ create mode 100644 note/DL-7-2025-06-25.json
+ create mode 100644 note/DL-8-2025-07-02.json
+ create mode 100644 note/DL-9-2025-07-09.json
+ create mode 100644 note/DL-9-2025-07-10.json
+ create mode 100644 note/FF-138-2025-04-30.json
+ create mode 100644 note/KN-571-2025-05-08.json
+ create mode 100644 note/KN-572-2025-05-15.json
+ create mode 100644 note/KN-573-2025-05-22.json
+ create mode 100644 note/KN-574-2025-05-29.json
+ create mode 100644 note/KN-575-2025-06-05.json
+ create mode 100644 note/KN-576-2025-06-12.json
+ create mode 100644 note/KN-577-2025-06-19.json
+ create mode 100644 note/KN-578-2025-06-26.json
+ create mode 100644 note/KN-579-2025-07-03.json
+ create mode 100644 note/KN-580-2025-07-10.json
+ create mode 100644 note/KN-581-2025-07-17.json
+ create mode 100644 note/KN-582-2025-07-24.json
+ create mode 100644 note/KN-583-2025-07-31.json
+ create mode 100644 note/KN-584-2025-08-07.json
+ create mode 100644 note/KN-585-2025-08-14.json
+ create mode 100644 note/KN-586-2025-08-21.json
+ create mode 100644 note/KN-587-2025-08-28.json
+ create mode 100644 note/KN-588-2025-09-04.json
+ create mode 100644 note/KN-589-2025-09-11.json
+ create mode 100644 note/KN-590-2025-09-18.json
+ create mode 100644 note/KN-591-2025-09-25.json
+ create mode 100644 note/KN-592-2025-10-09.json
+ create mode 100644 note/KN-593-2025-10-16.json
+ create mode 100644 note/KN-594-2025-10-23.json
+ create mode 100644 note/KN-595-2025-10-30.json
+ create mode 100644 note/KN-596-2025-11-06.json
+ create mode 100644 note/KN-597-2025-11-13.json
+ create mode 100644 note/KN-598-2025-11-20.json
+ create mode 100644 note/KN-599-2025-11-27.json
+ create mode 100644 note/KN-600-2025-12-04.json
+ create mode 100644 note/KN-601-2025-12-12.json
+ create mode 100644 note/KN-602-2025-12-18.json
+ create mode 100644 note/KN-605-2026-01-08.json
+ create mode 100644 note/KR-2025-05-24.json
+ create mode 100644 note/KR-704-2025-05-03.json
+ create mode 100644 note/KR-705-2025-05-10.json
+ create mode 100644 note/KR-706-2025-05-17.json
+ create mode 100644 note/KR-708-2025-05-31.json
+ create mode 100644 note/KR-709-2025-06-07.json
+ create mode 100644 note/KR-710-2025-06-14.json
+ create mode 100644 note/KR-711-2025-06-21.json
+ create mode 100644 note/KR-712-2025-06-28.json
+ create mode 100644 note/KR-713-2025-07-05.json
+ create mode 100644 note/KR-714-2025-07-12.json
+ create mode 100644 note/KR-715-2025-07-19.json
+ create mode 100644 note/KR-716-2025-07-26.json
+ create mode 100644 note/KR-717-2025-08-02.json
+ create mode 100644 note/KR-718-2025-08-09.json
+ create mode 100644 note/KR-719-2025-08-16.json
+ create mode 100644 note/KR-720-2025-08-23.json
+ create mode 100644 note/KR-721-2025-08-30.json
+ create mode 100644 note/KR-722-2025-09-06.json
+ create mode 100644 note/KR-723-2025-09-13.json
+ create mode 100644 note/KR-724-2025-09-20.json
+ create mode 100644 note/KR-725-2025-10-04.json
+ create mode 100644 note/KR-726-2025-10-11.json
+ create mode 100644 note/KR-727-2025-10-18.json
+ create mode 100644 note/KR-728-2025-10-25.json
+ create mode 100644 note/KR-729-2025-11-01.json
+ create mode 100644 note/KR-730-2025-11-08.json
+ create mode 100644 note/KR-731-2025-11-15.json
+ create mode 100644 note/KR-732-2025-11-29.json
+ create mode 100644 note/KR-733-2025-12-06.json
+ create mode 100644 note/KR-734-2025-12-13.json
+ create mode 100644 note/KR-735-2025-12-20.json
+ create mode 100644 note/MC-XX-2025-10-05.json
+ create mode 100644 note/MY-XX-2025-09-14.json
+ create mode 100644 note/SK-1-2025-05-02.json
+ create mode 100644 note/SK-10-2025-07-04.json
+ create mode 100644 note/SK-11-2025-07-11.json
+ create mode 100644 note/SK-12-2025-07-18
+ create mode 100644 note/SK-12-2025-07-18.json
+ create mode 100644 note/SK-13-2025-07-25.json
+ create mode 100644 note/SK-14-2025-08-01.json
+ create mode 100644 note/SK-15-2025-08-08.json
+ create mode 100644 note/SK-16-2025-08-22.json
+ create mode 100644 note/SK-17-2025-08-29.json
+ create mode 100644 note/SK-18-2025-09-12.json
+ create mode 100644 note/SK-19-2025-09-19.json
+ create mode 100644 note/SK-2-2025-05-09.json
+ create mode 100644 note/SK-20-2025-09-26.json
+ create mode 100644 note/SK-21-2025-10-03.json
+ create mode 100644 note/SK-22-2025-10-10.json
+ create mode 100644 note/SK-23-2025-10-17.json
+ create mode 100644 note/SK-24-2025-10-24.json
+ create mode 100644 note/SK-25-2025-10-31.json
+ create mode 100644 note/SK-26-2025-11-07.json
+ create mode 100644 note/SK-27-2025-11-14.json
+ create mode 100644 note/SK-28-2025-11-21.json
+ create mode 100644 note/SK-29-2025-11-28.json
+ create mode 100644 note/SK-3-2025-05-16.json
+ create mode 100644 note/SK-30-2025-12-05.json
+ create mode 100644 note/SK-31-2025-12-12.json
+ create mode 100644 note/SK-32-2025-12-19.json
+ create mode 100644 note/SK-4-2025-05-23.json
+ create mode 100644 note/SK-5-2025-05-30.json
+ create mode 100644 note/SK-6-2025-06-06.json
+ create mode 100644 note/SK-7-2025-06-13.json
+ create mode 100644 note/SK-8-2025-06-20.json
+ create mode 100644 note/SK-9-2025-06-27.json
+ create mode 100644 note/SM-1-2025-05-04.json
+ create mode 100644 note/SM-10-2025-07-06.json
+ create mode 100644 note/SM-11-2025-07-13.json
+ create mode 100644 note/SM-11-2025-07-14.json
+ create mode 100644 note/SM-12-2025-07-20.json
+ create mode 100644 note/SM-13-2025-07-27.json
+ create mode 100644 note/SM-14-2025-08-03.json
+ create mode 100644 note/SM-15-2025-08-10.json
+ create mode 100644 note/SM-16-2025-08-17.json
+ create mode 100644 note/SM-17-2025-08-24.json
+ create mode 100644 note/SM-18-2025-08-31.json
+ create mode 100644 note/SM-19-2025-09-07.json
+ create mode 100644 note/SM-2-2025-05-11.json
+ create mode 100644 note/SM-20-2025-09-14.json
+ create mode 100644 note/SM-21-2025-09-21.json
+ create mode 100644 note/SM-22-2025-09-28.json
+ create mode 100644 note/SM-23-2025-10-05.json
+ create mode 100644 note/SM-24-2025-10-12.json
+ create mode 100644 note/SM-25-2025-10-19.json
+ create mode 100644 note/SM-26-2025-10-26.json
+ create mode 100644 note/SM-27-2025-11-02.json
+ create mode 100644 note/SM-28-2025-11-09.json
+ create mode 100644 note/SM-29-2025-11-16.json
+ create mode 100644 note/SM-3-2025-05-18.json
+ create mode 100644 note/SM-30-2025-11-23.json
+ create mode 100644 note/SM-31-2025-11-30.json
+ create mode 100644 note/SM-32-2025-12-07.json
+ create mode 100644 note/SM-33-2025-12-14.json
+ create mode 100644 note/SM-34-2025-12-21.json
+ create mode 100644 note/SM-36-2026-01-04.json
+ create mode 100644 note/SM-4-2025-05-25.json
+ create mode 100644 note/SM-5-2025-06-01.json
+ create mode 100644 note/SM-6-2025-06-08.json
+ create mode 100644 note/SM-7-2025-06-15.json
+ create mode 100644 note/SM-8-2025-06-22.json
+ create mode 100644 note/SM-9-2025-06-29.json
+ create mode 100644 note/SS-465-2025-04-29.json
+ create mode 100644 note/SS-466-2025-05-06.json
+ create mode 100644 note/SS-467-2025-05-13.json
+ create mode 100644 note/SS-468-2025-05-20.json
+ create mode 100644 note/SS-469-2025-05-27.json
+ create mode 100644 note/SS-470-2025-06-03.json
+ create mode 100644 note/SS-471-2025-06-10.json
+ create mode 100644 note/SS-472-2025-06-17.json
+ create mode 100644 note/SS-473-2025-06-24.json
+ create mode 100644 note/SS-474-2025-07-01.json
+ create mode 100644 note/SS-475-2025-07-08.json
+ create mode 100644 note/SS-476-2025-07-15.json
+ create mode 100644 note/SS-477-2025-07-22.json
+ create mode 100644 note/SS-478-2025-07-29.json
+ create mode 100644 note/SS-479-2025-08-05.json
+ create mode 100644 note/SS-480-2025-08-12.json
+ create mode 100644 note/SS-481-2025-08-19.json
+ create mode 100644 note/SS-482-2025-08-26.json
+ create mode 100644 note/SS-483-2025-09-02.json
+ create mode 100644 note/SS-484-2025-09-09.json
+ create mode 100644 note/SS-485-2025-09-16.json
+ create mode 100644 note/SS-486-2025-09-23.json
+ create mode 100644 note/SS-487-2025-09-30.json
+ create mode 100644 note/SS-488-2025-10-07.json
+ create mode 100644 note/SS-489-2025-10-14.json
+ create mode 100644 note/SS-490-2025-10-21.json
+ create mode 100644 note/SS-491-2025-10-28.json
+ create mode 100644 note/SS-492-2025-11-04.json
+ create mode 100644 note/SS-493-2025-11-11.json
+ create mode 100644 note/SS-494-2025-11-18.json
+ create mode 100644 note/SS-495-2025-11-25.json
+ create mode 100644 note/SS-496-2025-12-02.json
+ create mode 100644 note/SS-497-2025-12-10.json
+ create mode 100644 note/SS-501-2026-01-06.json
+ create mode 100644 note/W-819-2025-04-28.json
+ create mode 100644 note/XX-Unknown-Date.json
+ create mode 100644 note/XX-XX-2025-09-14.json
+ create mode 100644 note/XX-XX-2025-11-13.json
+ create mode 100644 note/latest.json
+ create mode 100644 note/result_manifest.json
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 process_manual_uploads.py
+ create mode 100644 requirements.txt
+ create mode 100644 result_manifest.json
+ create mode 100644 scheduler.log
+ create mode 100644 scheduler.py
+ create mode 100644 setup_and_push_to_github.bat
+ create mode 100644 setup_remote.bat
+ create mode 100644 tailwind.config.js
+ create mode 100644 update_and_push.log
+ create mode 100644 update_and_push.py
+ create mode 100644 updateloto.py
+2026-01-07 14:39:49,761 - INFO - Starting: Git Push
+2026-01-07 14:39:49,805 - ERROR - Error in Git Push: fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+2026-01-07 14:39:49,805 - ERROR - Failed to update GitHub.
+2026-01-07 15:26:11,262 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 15:26:11,262 - INFO - Starting: Lottery Scraper
+2026-01-07 15:26:19,886 - INFO - Success: Lottery Scraper
+2026-01-07 15:26:19,886 - INFO - Output: Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Live  Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 15:26:19,888 - INFO - Starting: Manifest Generation
+2026-01-07 15:26:19,982 - INFO - Success: Manifest Generation
+2026-01-07 15:26:19,982 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 15:26:19,983 - INFO - Starting: History Generation
+2026-01-07 15:26:20,345 - INFO - Success: History Generation
+2026-01-07 15:26:20,345 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 15:26:20,347 - INFO - Checking for changes to commit...
+2026-01-07 15:26:20,512 - INFO - Starting: Git Add
+2026-01-07 15:26:20,662 - INFO - Success: Git Add
+2026-01-07 15:26:20,662 - INFO - Starting: Git Commit
+2026-01-07 15:26:20,907 - INFO - Success: Git Commit
+2026-01-07 15:26:20,907 - INFO - Output: [master e4ac129] Auto-update: 2026-01-07 15:26:20 IST
+ 4 files changed, 675 insertions(+), 23 deletions(-)
+2026-01-07 15:26:20,945 - INFO - Starting: Git Push (branch: master)
+2026-01-07 15:26:22,851 - ERROR - Error in Git Push (branch: master): To https://github.com/santhkhd/kerala_loto.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/santhkhd/kerala_loto.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+2026-01-07 15:26:22,852 - ERROR - Failed to update GitHub.
+2026-01-07 15:28:38,725 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 15:28:38,726 - INFO - Starting: Lottery Scraper
+2026-01-07 15:28:47,106 - INFO - Success: Lottery Scraper
+2026-01-07 15:28:47,106 - INFO - Output: Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Live  Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 15:28:47,106 - INFO - Starting: Manifest Generation
+2026-01-07 15:28:47,178 - INFO - Success: Manifest Generation
+2026-01-07 15:28:47,178 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 15:28:47,179 - INFO - Starting: History Generation
+2026-01-07 15:28:47,336 - INFO - Success: History Generation
+2026-01-07 15:28:47,336 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 15:28:47,336 - INFO - Checking for changes to commit...
+2026-01-07 15:28:47,482 - INFO - Starting: Git Add
+2026-01-07 15:28:47,602 - INFO - Success: Git Add
+2026-01-07 15:28:47,603 - INFO - Starting: Git Commit
+2026-01-07 15:28:47,782 - INFO - Success: Git Commit
+2026-01-07 15:28:47,783 - INFO - Output: [master 984afef] Auto-update: 2026-01-07 15:28:47 IST
+ 4 files changed, 111 insertions(+)
+2026-01-07 15:28:47,818 - INFO - Starting: Git Pull (Rebase)
+2026-01-07 15:28:47,881 - ERROR - Error in Git Pull (Rebase): error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+2026-01-07 15:28:47,881 - INFO - Starting: Git Push (branch: master)
+2026-01-07 15:28:49,439 - ERROR - Error in Git Push (branch: master): To https://github.com/santhkhd/kerala_loto.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/santhkhd/kerala_loto.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+2026-01-07 15:28:49,439 - ERROR - Failed to update GitHub.
+2026-01-07 15:46:02,864 - INFO - === Starting Kerala Lottery Auto-Loop Task ===
+2026-01-07 15:46:15,839 - INFO - === Starting Kerala Lottery Auto-Loop Task ===
+2026-01-07 15:46:44,887 - INFO - === Starting Kerala Lottery Auto-Loop Task ===
+2026-01-07 15:46:44,888 - INFO - Inside time window (15:46:44). Starting update...
+2026-01-07 15:46:44,933 - INFO - Starting: Initial Sync
+2026-01-07 15:46:44,979 - ERROR - Error in Initial Sync: error: cannot pull with rebase: You have unstaged changes.
+error: additionally, your index contains uncommitted changes.
+error: Please commit or stash them.
+
+2026-01-07 15:46:44,979 - INFO - Starting: Lottery Scraper
+2026-01-07 15:46:55,772 - INFO - Success: Lottery Scraper
+2026-01-07 15:46:55,772 - INFO - Output: Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Live  Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 15:46:55,774 - INFO - Starting: Manifest Generation
+2026-01-07 15:46:55,855 - INFO - Success: Manifest Generation
+2026-01-07 15:46:55,855 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 15:46:55,855 - INFO - Starting: History Generation
+2026-01-07 15:46:56,116 - INFO - Success: History Generation
+2026-01-07 15:46:56,116 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 15:46:56,117 - INFO - Checking for changes to commit...
+2026-01-07 15:46:56,239 - INFO - Starting: Git Add
+2026-01-07 15:46:56,377 - INFO - Success: Git Add
+2026-01-07 15:46:56,377 - INFO - Starting: Git Commit
+2026-01-07 15:46:56,605 - INFO - Success: Git Commit
+2026-01-07 15:46:56,605 - INFO - Output: [master 7362d8c] Auto-update: 2026-01-07 15:46:56 IST
+ 14 files changed, 4626 insertions(+), 441 deletions(-)
+ delete mode 100644 kerala_loto-main.zip
+ create mode 100644 live.html
+ create mode 100644 prediction.html
+ create mode 100644 result.html
+ create mode 100644 resultgen3.html
+ create mode 100644 scanner.html
+ delete mode 100644 scheduler.log
+ create mode 100644 scrollresult.html
+ create mode 100644 search.html
+ delete mode 100644 update_and_push.log
+2026-01-07 15:46:56,707 - INFO - Starting: Git Pull (Rebase)
+2026-01-07 15:46:59,558 - ERROR - Error in Git Pull (Rebase): From https://github.com/santhkhd/kerala_loto
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+Rebasing (1/4)
+error: The following untracked working tree files would be overwritten by merge:
+	kerala_loto-main.zip
+	update_and_push.log
+Please move or remove them before you merge.
+Aborting
+hint: Could not execute the todo command
+hint:
+hint:     pick 187e50d3cc6b1dbbd0ea286cfe99550f2c352c8f Auto-update: 2026-01-07 14:39:49 IST
+hint:
+hint: It has been rescheduled; To edit the command before continuing, please
+hint: edit the todo list first:
+hint:
+hint:     git rebase --edit-todo
+hint:     git rebase --continue
+
+2026-01-07 15:46:59,604 - INFO - Starting: Git Push (branch: master)
+2026-01-07 15:47:01,379 - ERROR - Error in Git Push (branch: master): To https://github.com/santhkhd/kerala_loto.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/santhkhd/kerala_loto.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+2026-01-07 15:47:01,379 - INFO - Update complete. Sleeping for 15 minutes...
+2026-01-07 15:48:41,630 - INFO - === Starting Kerala Lottery Auto-Loop Task ===
+2026-01-07 15:49:02,516 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 15:49:02,553 - INFO - Starting: Initial Sync
+2026-01-07 15:49:03,554 - INFO - Success: Initial Sync
+2026-01-07 15:49:03,555 - INFO - Output: Already up to date.
+2026-01-07 15:49:03,555 - INFO - Starting: Lottery Scraper
+2026-01-07 15:49:12,198 - INFO - Success: Lottery Scraper
+2026-01-07 15:49:12,198 - INFO - Output: Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Live  Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 15:49:12,198 - INFO - Starting: Manifest Generation
+2026-01-07 15:49:12,267 - INFO - Success: Manifest Generation
+2026-01-07 15:49:12,267 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 197 results.
+2026-01-07 15:49:12,268 - INFO - Starting: History Generation
+2026-01-07 15:49:12,440 - INFO - Success: History Generation
+2026-01-07 15:49:12,440 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 201 draws.
+2026-01-07 15:49:12,440 - INFO - Checking for changes to commit...
+2026-01-07 15:49:12,584 - INFO - Starting: Git Add
+2026-01-07 15:49:12,791 - INFO - Success: Git Add
+2026-01-07 15:49:12,791 - INFO - Starting: Git Commit
+2026-01-07 15:49:14,236 - INFO - Success: Git Commit
+2026-01-07 15:49:14,236 - INFO - Output: [detached HEAD e2e363c] Auto-update: 2026-01-07 15:49:12 IST
+ 10 files changed, 169173 insertions(+), 162951 deletions(-)
+ create mode 100644 kerala_loto-main.zip
+ create mode 100644 note/BT-36-2026-01-05.json
+ create mode 100644 note/DL-34-2026-01-07.json
+ create mode 100644 note/KN-605-2026-01-08.json
+ create mode 100644 note/SM-36-2026-01-04.json
+ create mode 100644 note/SS-501-2026-01-06.json
+ create mode 100644 update_and_push.log
+ create mode 100644 update_and_push.py
+2026-01-07 15:49:14,583 - INFO - Starting: Git Pull (Rebase)
+2026-01-07 15:49:14,630 - ERROR - Error in Git Pull (Rebase): error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
+
+2026-01-07 15:49:14,877 - INFO - Starting: Git Push (branch: master)
+2026-01-07 15:49:16,366 - ERROR - Error in Git Push (branch: master): To https://github.com/santhkhd/kerala_loto.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/santhkhd/kerala_loto.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+2026-01-07 15:49:16,367 - ERROR - Failed to update GitHub.
+2026-01-07 17:24:59,476 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 17:24:59,477 - INFO - Starting: Git Fetch
+2026-01-07 17:25:04,686 - INFO - Success: Git Fetch
+2026-01-07 17:25:04,687 - INFO - Starting: Git Sync (Reset to Remote)
+2026-01-07 17:25:04,812 - INFO - Success: Git Sync (Reset to Remote)
+2026-01-07 17:25:04,812 - INFO - Output: Unstaged changes after reset:
+D	AUTOMATION_README.md
+D	DEPLOY_INSTRUCTIONS.txt
+D	SUMMARY.md
+D	fetch_results.bat
+M	history.json
+D	note/DO-XX-2025-11-13.json
+D	note/PM-XX-2025-11-13.json
+D	note/XX-SK-27-2025-11-13.json
+M	result_manifest.json
+D	run_lottery_scheduler.bat
+D	scheduler.log
+D	start_scheduler.bat
+2026-01-07 17:25:04,813 - INFO - Starting: Lottery Scraper
+2026-01-07 17:30:15,422 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 17:30:15,422 - INFO - Starting: Git Fetch
+2026-01-07 17:30:16,526 - INFO - Success: Git Fetch
+2026-01-07 17:30:16,526 - INFO - Starting: Git Sync (Reset to Remote)
+2026-01-07 17:30:16,616 - INFO - Success: Git Sync (Reset to Remote)
+2026-01-07 17:30:16,616 - INFO - Starting: Lottery Scraper
+2026-01-07 17:30:25,959 - INFO - Success: Lottery Scraper
+2026-01-07 17:30:25,960 - INFO - Output: Current time 17:30:17 IST is outside the optimal window (2:45 PM - 5:30 PM).
+The script will still attempt to fetch results, but they may be incomplete.
+Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 17:30:25,961 - INFO - Starting: Manifest Generation
+2026-01-07 17:30:26,042 - INFO - Success: Manifest Generation
+2026-01-07 17:30:26,042 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 17:30:26,042 - INFO - Starting: History Generation
+2026-01-07 17:30:26,327 - INFO - Success: History Generation
+2026-01-07 17:30:26,327 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 17:30:26,328 - INFO - Checking for changes to commit...
+2026-01-07 17:30:26,452 - INFO - Starting: Git Add
+2026-01-07 17:30:26,564 - INFO - Success: Git Add
+2026-01-07 17:30:26,564 - INFO - Starting: Git Commit
+2026-01-07 17:30:27,832 - INFO - Success: Git Commit
+2026-01-07 17:30:27,834 - INFO - Output: [master 5a5d3405] Auto-update: 2026-01-07 17:30:26 IST
+ 44 files changed, 190332 insertions(+), 141746 deletions(-)
+ create mode 100644 .github/workflows/process-uploads.yml
+ create mode 100644 note/BR-106-2025-11-22.json
+ create mode 100644 note/BT-29-2025-11-17.json
+ create mode 100644 note/BT-30-2025-11-24.json
+ create mode 100644 note/BT-31-2025-12-01.json
+ create mode 100644 note/BT-32-2025-12-08.json
+ create mode 100644 note/BT-33-2025-12-15.json
+ create mode 100644 note/BT-34-2025-12-22.json
+ create mode 100644 note/DL-27-2025-11-19.json
+ create mode 100644 note/DL-28-2025-11-26.json
+ create mode 100644 note/DL-29-2025-12-03.json
+ create mode 100644 note/DL-30-2025-12-10.json
+ create mode 100644 note/DL-31-2025-12-17.json
+ create mode 100644 note/KN-598-2025-11-20.json
+ create mode 100644 note/KN-599-2025-11-27.json
+ create mode 100644 note/KN-600-2025-12-04.json
+ create mode 100644 note/KN-601-2025-12-12.json
+ create mode 100644 note/KN-602-2025-12-18.json
+ create mode 100644 note/KR-731-2025-11-15.json
+ create mode 100644 note/KR-732-2025-11-29.json
+ create mode 100644 note/KR-733-2025-12-06.json
+ create mode 100644 note/KR-734-2025-12-13.json
+ create mode 100644 note/KR-735-2025-12-20.json
+ create mode 100644 note/SK-27-2025-11-14.json
+ create mode 100644 note/SK-28-2025-11-21.json
+ create mode 100644 note/SK-29-2025-11-28.json
+ create mode 100644 note/SK-30-2025-12-05.json
+ create mode 100644 note/SK-31-2025-12-12.json
+ create mode 100644 note/SK-32-2025-12-19.json
+ create mode 100644 note/SM-29-2025-11-16.json
+ create mode 100644 note/SM-30-2025-11-23.json
+ create mode 100644 note/SM-31-2025-11-30.json
+ create mode 100644 note/SM-32-2025-12-07.json
+ create mode 100644 note/SM-33-2025-12-14.json
+ create mode 100644 note/SM-34-2025-12-21.json
+ create mode 100644 note/SS-494-2025-11-18.json
+ create mode 100644 note/SS-495-2025-11-25.json
+ create mode 100644 note/SS-496-2025-12-02.json
+ create mode 100644 note/SS-497-2025-12-10.json
+ create mode 100644 note/XX-XX-2025-11-13.json
+ create mode 100644 process_manual_uploads.py
+ create mode 100644 scheduler.log
+2026-01-07 17:30:27,834 - INFO - Starting: Git Push to Master
+2026-01-07 17:30:30,913 - INFO - Success: Git Push to Master
+2026-01-07 17:30:30,913 - INFO - Update and push completed successfully!
+2026-01-07 17:33:10,813 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 17:33:10,814 - INFO - Starting: Git Fetch
+2026-01-07 17:33:11,792 - INFO - Success: Git Fetch
+2026-01-07 17:33:11,793 - INFO - Starting: Git Sync (Reset to Remote)
+2026-01-07 17:33:11,879 - INFO - Success: Git Sync (Reset to Remote)
+2026-01-07 17:33:11,880 - INFO - Output: Unstaged changes after reset:
+M	update_and_push.log
+2026-01-07 17:33:11,881 - INFO - Starting: Lottery Scraper
+2026-01-07 17:33:20,567 - INFO - Success: Lottery Scraper
+2026-01-07 17:33:20,568 - INFO - Output: Current time 17:33:12 IST is outside the optimal window (2:45 PM - 5:30 PM).
+The script will still attempt to fetch results, but they may be incomplete.
+Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 17:33:20,568 - INFO - Starting: Manifest Generation
+2026-01-07 17:33:20,660 - INFO - Success: Manifest Generation
+2026-01-07 17:33:20,660 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 17:33:20,660 - INFO - Starting: History Generation
+2026-01-07 17:33:20,942 - INFO - Success: History Generation
+2026-01-07 17:33:20,942 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 17:33:20,942 - INFO - Checking for changes to commit...
+2026-01-07 17:33:21,084 - INFO - Starting: Git Add
+2026-01-07 17:33:21,134 - INFO - Success: Git Add
+2026-01-07 17:33:21,134 - INFO - Starting: Git Commit
+2026-01-07 17:33:21,221 - INFO - Success: Git Commit
+2026-01-07 17:33:21,221 - INFO - Output: [master 20ca1d0c] Auto-update: 2026-01-07 17:33:21 IST
+ 1 file changed, 87 insertions(+)
+2026-01-07 17:33:21,221 - INFO - Starting: Git Push to Master
+2026-01-07 17:33:23,305 - INFO - Success: Git Push to Master
+2026-01-07 17:33:23,305 - INFO - Update and push completed successfully!
+2026-01-07 17:35:26,102 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 17:35:26,102 - INFO - Starting: Git Fetch
+2026-01-07 17:35:27,472 - INFO - Success: Git Fetch
+2026-01-07 17:35:27,473 - INFO - Starting: Git Sync (Reset to Remote Main)
+2026-01-07 17:35:27,742 - INFO - Success: Git Sync (Reset to Remote Main)
+2026-01-07 17:35:27,743 - INFO - Output: Unstaged changes after reset:
+M	.gitignore
+M	auto_scheduler.py
+M	history.json
+M	index.html
+M	note/BT-28-2025-11-10.json
+M	note/DL-26-2025-11-12.json
+M	note/KN-596-2025-11-06.json
+M	note/KN-597-2025-11-13.json
+M	note/KR-730-2025-11-08.json
+M	note/SK-26-2025-11-07.json
+M	note/SM-28-2025-11-09.json
+M	note/SS-493-2025-11-11.json
+M	note/latest.json
+M	result_manifest.json
+M	updateloto.py
+2026-01-07 17:35:27,744 - INFO - Starting: Lottery Scraper
+2026-01-07 17:35:39,728 - INFO - Success: Lottery Scraper
+2026-01-07 17:35:39,728 - INFO - Output: Current time 17:35:28 IST is outside the optimal window (2:45 PM - 5:30 PM).
+The script will still attempt to fetch results, but they may be incomplete.
+Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 17:35:39,728 - INFO - Starting: Manifest Generation
+2026-01-07 17:35:39,815 - INFO - Success: Manifest Generation
+2026-01-07 17:35:39,815 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 17:35:39,815 - INFO - Starting: History Generation
+2026-01-07 17:35:40,093 - INFO - Success: History Generation
+2026-01-07 17:35:40,093 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 17:35:40,093 - INFO - Checking for changes to commit...
+2026-01-07 17:35:40,238 - INFO - Starting: Git Add
+2026-01-07 17:35:40,354 - INFO - Success: Git Add
+2026-01-07 17:35:40,354 - INFO - Starting: Git Commit
+2026-01-07 17:35:41,932 - INFO - Success: Git Commit
+2026-01-07 17:35:41,932 - INFO - Output: [master 483ef5b7] Auto-update: 2026-01-07 17:35:40 IST
+ 22 files changed, 198715 insertions(+), 191929 deletions(-)
+ create mode 100644 note/BT-36-2026-01-05.json
+ create mode 100644 note/DL-34-2026-01-07.json
+ create mode 100644 note/KN-605-2026-01-08.json
+ create mode 100644 note/SM-36-2026-01-04.json
+ create mode 100644 note/SS-501-2026-01-06.json
+ create mode 100644 update_and_push.log
+ create mode 100644 update_and_push.py
+2026-01-07 17:35:41,932 - INFO - Starting: Git Push to Main
+2026-01-07 17:35:44,544 - INFO - Success: Git Push to Main
+2026-01-07 17:35:44,544 - INFO - Update and push completed successfully!
+2026-01-07 18:30:26,544 - INFO - --- Starting Run 1 of 7 ---
+2026-01-07 18:30:26,544 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-07 18:30:26,545 - INFO - Starting: Git Fetch
+2026-01-07 18:30:27,925 - INFO - Success: Git Fetch
+2026-01-07 18:30:27,925 - INFO - Starting: Git Sync (Reset to Remote Main)
+2026-01-07 18:30:28,060 - INFO - Success: Git Sync (Reset to Remote Main)
+2026-01-07 18:30:28,061 - INFO - Output: Unstaged changes after reset:
+M	history.json
+M	note/latest.json
+M	result_manifest.json
+M	update_and_push.log
+M	update_and_push.py
+2026-01-07 18:30:28,061 - INFO - Starting: Lottery Scraper
+2026-01-07 18:30:36,817 - INFO - Success: Lottery Scraper
+2026-01-07 18:30:36,817 - INFO - Output: Current time 18:30:28 IST is outside the optimal window (2:45 PM - 5:30 PM).
+The script will still attempt to fetch results, but they may be incomplete.
+Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result  08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-SM-36
+TITLE TEXT: 'Kerala Lottery Result Today 04.01.2026 Samrudhi (SM-36) - Full Winning Numbers'
+Saved: note/SM-36-2026-01-04.json
+2026-01-07 18:30:36,817 - INFO - Starting: Manifest Generation
+2026-01-07 18:30:36,902 - INFO - Success: Manifest Generation
+2026-01-07 18:30:36,902 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\kerala_loto-main\result_manifest.json with 233 results.
+2026-01-07 18:30:36,902 - INFO - Starting: History Generation
+2026-01-07 18:30:37,266 - INFO - Success: History Generation
+2026-01-07 18:30:37,266 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\kerala_loto-main\history.json with 237 draws.
+2026-01-07 18:30:37,267 - INFO - Checking for changes to commit...
+2026-01-07 18:30:37,413 - INFO - Starting: Git Add
+2026-01-07 18:30:37,489 - INFO - Success: Git Add
+2026-01-07 18:30:37,489 - INFO - Starting: Git Commit
+2026-01-07 18:30:38,188 - INFO - Success: Git Commit
+2026-01-07 18:30:38,188 - INFO - Output: [master 5cc106d3] Auto-update: 2026-01-07 18:30:37 IST
+ 5 files changed, 89172 insertions(+), 91799 deletions(-)
+2026-01-07 18:30:38,189 - INFO - Starting: Git Push to Main
+2026-01-07 18:30:40,780 - INFO - Success: Git Push to Main
+2026-01-07 18:30:40,780 - INFO - Update and push completed successfully!
+2026-01-07 18:30:40,780 - INFO - Waiting 15 minutes before next check...
+2026-01-08 16:58:35,095 - INFO - --- Starting Run 1 of 7 ---
+2026-01-08 16:58:35,095 - INFO - === Starting Kerala Lottery Update Task ===
+2026-01-08 16:58:35,095 - INFO - Starting: Git Fetch
+2026-01-08 16:58:36,558 - INFO - Success: Git Fetch
+2026-01-08 16:58:36,558 - INFO - Starting: Git Sync (Reset to Remote Main)
+2026-01-08 16:58:36,688 - INFO - Success: Git Sync (Reset to Remote Main)
+2026-01-08 16:58:36,688 - INFO - Output: Unstaged changes after reset:
+M	history.json
+M	note/latest.json
+M	result_manifest.json
+2026-01-08 16:58:36,689 - INFO - Starting: Lottery Scraper
+2026-01-08 16:58:45,340 - INFO - Success: Lottery Scraper
+2026-01-08 16:58:45,340 - INFO - Output: Found 5 recent results
+Processing result 1: https://www.kllotteryresult.com/kerala-lottery-result-KN-605
+TITLE TEXT: 'Kerala Lottery Result Today 08.01.2026 Karunya Plus (KN-605) - Full Winning Numbers'
+Saved: note/KN-605-2026-01-08.json
+
+Processing result 2: https://www.kllotteryresult.com/kerala-lottery-result-DL-34
+TITLE TEXT: 'Kerala Lottery Result Today 07.01.2026 Dhanalakshmi (DL-34) - Full Winning Numbers'
+Saved: note/DL-34-2026-01-07.json
+
+Processing result 3: https://www.kllotteryresult.com/kerala-lottery-result-SK-35
+TITLE TEXT: 'Kerala Lottery Result  09.01.2026 Suvarna Keralam (SK-35) - Full Winning Numbers'
+Skipping SK-35-2026-01-09.json: Results are not yet fully published (placeholders found).
+
+Processing result 4: https://www.kllotteryresult.com/kerala-lottery-result-SS-501
+TITLE TEXT: 'Kerala Lottery Result Today 06.01.2026 Sthree Sakthi (SS-501) - Full Winning Numbers'
+Saved: note/SS-501-2026-01-06.json
+
+Processing result 5: https://www.kllotteryresult.com/kerala-lottery-result-BT-36
+TITLE TEXT: 'Kerala Lottery Result Today 05.01.2026 Bhagyathara (BT-36) - Full Winning Numbers'
+Saved: note/BT-36-2026-01-05.json
+2026-01-08 16:58:45,340 - INFO - Starting: Manifest Generation
+2026-01-08 16:58:45,424 - INFO - Success: Manifest Generation
+2026-01-08 16:58:45,425 - INFO - Output: Manifest written to C:\Users\santh\Downloads\keralaloto\backup\kerala_loto-main\result_manifest.json with 242 results.
+2026-01-08 16:58:45,425 - INFO - Starting: History Generation
+2026-01-08 16:58:45,728 - INFO - Success: History Generation
+2026-01-08 16:58:45,728 - INFO - Output: Generated C:\Users\santh\Downloads\keralaloto\backup\kerala_loto-main\history.json with 246 draws.
+2026-01-08 16:58:45,728 - INFO - Checking for changes to commit...
+2026-01-08 16:58:45,870 - INFO - Starting: Git Add
+2026-01-08 16:58:45,976 - INFO - Success: Git Add
+2026-01-08 16:58:45,976 - INFO - Starting: Git Commit
+2026-01-08 16:58:46,637 - INFO - Success: Git Commit
+2026-01-08 16:58:46,637 - INFO - Output: [master be50bd48] Auto-update: 2026-01-08 16:58:45 IST
+ 4 files changed, 95588 insertions(+), 94158 deletions(-)
+ create mode 100644 note/KN-605-2026-01-08.json
+2026-01-08 16:58:46,638 - INFO - Starting: Git Push to Main
+2026-01-08 16:58:49,086 - INFO - Success: Git Push to Main
+2026-01-08 16:58:49,087 - INFO - Update and push completed successfully!
+2026-01-08 16:58:49,087 - INFO - Result found and pushed. Stopping further runs for today.
+2026-01-08 16:58:49,087 - INFO - === Daily update task finished. ===
