@@ -105,29 +105,103 @@ body.dark .app-shell {
     text-overflow: ellipsis;
 }
 
-/* Segmented Language Selector */
-.lang-selector {
+/* Language Toggle and Modal */
+.lang-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
     display: flex;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 2px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
 }
 
-.lang-btn {
-    border: none;
-    background: transparent;
-    color: white;
-    padding: 4px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 6px;
+.lang-toggle:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.lang-modal {
+    background: var(--card-bg);
+    width: 280px;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.lang-modal h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.lang-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
     cursor: pointer;
     transition: all 0.2s;
+    font-weight: 700;
+    color: var(--text-main);
 }
 
-.lang-btn.active {
-    background: white;
+.lang-option:active {
+    transform: scale(0.98);
+}
+
+.lang-option.active {
+    background: var(--primary-light);
+    border-color: var(--primary);
     color: var(--primary);
+}
+
+.lang-option i {
+    font-size: 1.2rem;
+    opacity: 0;
+}
+
+.lang-option.active i {
+    opacity: 1;
 }
 
 /* Category Scroller */
