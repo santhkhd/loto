@@ -89,7 +89,7 @@ body.dark .app-shell {
 }
 
 .app-header h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
@@ -98,7 +98,7 @@ body.dark .app-shell {
 }
 
 .app-header p {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     opacity: 0.9;
     white-space: nowrap;
     overflow: hidden;
@@ -149,7 +149,7 @@ body.dark .app-shell {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-muted);
     transition: all 0.2s;
@@ -218,7 +218,7 @@ body.dark .app-shell {
 
 .card-title {
     color: white;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -228,7 +228,7 @@ body.dark .app-shell {
 .card-date {
     color: #111827;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 /* Badges based on reference */
@@ -301,7 +301,7 @@ body.dark .result-card {
 .disclaimer {
     padding: 16px;
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     line-height: 1.5;
     opacity: 0.7;
@@ -333,7 +333,7 @@ body.dark .result-card {
 }
 
 .nav-item span {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-align: center;
     line-height: 1.1;
